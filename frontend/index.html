@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mailing Service – Send All at Once</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>Mailing Service</h1>
+      <p class="tagline">Add your Gmail, compose once, send to everyone.</p>
+    </header>
+
+    <main class="main">
+      <section class="card card--gmail">
+        <h2>Gmail account</h2>
+        <p class="hint">Use your Gmail address and an <a href="https://support.google.com/accounts/answer/185833" target="_blank" rel="noopener">App Password</a> (not your normal password).</p>
+        <div class="row">
+          <label for="gmail">Email</label>
+          <input id="gmail" type="email" placeholder="you@gmail.com" autocomplete="email" />
+        </div>
+        <div class="row">
+          <label for="appPassword">App password</label>
+          <input id="appPassword" type="password" placeholder="xxxx xxxx xxxx xxxx" autocomplete="off" />
+        </div>
+      </section>
+
+      <section class="card card--content">
+        <h2>Email content</h2>
+        <p class="hint">Same subject and body will be sent to all recipients.<br>Use <code>**word**</code> to <strong>bold</strong>, <code>*word*</code> to <em>italicize</em>. URLs become clickable links automatically.</p>
+        <div class="row">
+          <label for="subject">Subject</label>
+          <input id="subject" type="text" placeholder="Your subject" />
+        </div>
+        <div class="row">
+          <label for="body">Body</label>
+          <textarea id="body" rows="8" placeholder="I'm applying for the **Software Developer** role at your organization.&#10;&#10;Links:&#10;LinkedIn: https://linkedin.com/in/yourprofile"></textarea>
+        </div>
+      </section>
+
+      <section class="card card--recipients">
+        <h2>Recipients</h2>
+        <p class="hint">One email per line. All will receive the same message.</p>
+        <div class="row">
+          <label for="recipients">To (one email per line)</label>
+          <textarea id="recipients" rows="6" placeholder="friend1@example.com&#10;friend2@example.com"></textarea>
+        </div>
+        <div class="recipient-count" id="recipientCount">0 recipients</div>
+      </section>
+
+      <section class="card card--actions">
+        <button type="button" class="btn btn--primary" id="sendAll">Send all at once</button>
+        <p class="status" id="status"></p>
+      </section>
+
+      <section class="card card--results" id="resultsCard" hidden>
+        <h2>Send results</h2>
+        <ul class="results-list" id="resultsList"></ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Credentials are never stored. They are sent only to the backend to send emails.</p>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
